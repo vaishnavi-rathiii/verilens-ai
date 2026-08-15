@@ -332,21 +332,6 @@ Current development areas include:
 
 ---
 
-## 🔮 Future Improvements
-
-* Improved evidence ranking
-* More reliable source verification
-* Better confidence scoring
-* Multi-source evidence comparison
-* Improved RAG pipeline
-* Faster claim processing
-* Expanded automated testing
-* Improved user experience
-* Support for additional AI models
-* More detailed evidence explanations
-
----
-
 ## ❤️ Acknowledgement
 
 > Built with ❤️ by **Algorithm Avengers**
