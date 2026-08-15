@@ -11,19 +11,27 @@
         rel="stylesheet"
         href="{{ url_for('static', filename='css/style.css') }}"
     >
+
+    <!-- Font Awesome Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
 </head>
 
 <body>
 
     <header class="navbar">
+
         <div class="logo">
-            <span>◈</span>
+            <span class="lens-icon">◈</span>
             VeriLens
         </div>
 
         <div class="nav-text">
             AI Claim Verification
         </div>
+
     </header>
 
 
@@ -54,7 +62,16 @@
                 Enter a claim
             </label>
 
-            <textarea id="claim" rows="5" placeholder="Example: The Earth is round."></textarea>
+            <!-- IMPORTANT:
+                 No whitespace/newline inside textarea.
+                 This prevents the initial cursor/space issue.
+            -->
+            <textarea
+                id="claim"
+                rows="5"
+                placeholder="Example: The Earth is round."
+                autocomplete="off"
+                spellcheck="true"></textarea>
 
             <div class="input-footer">
 
@@ -62,7 +79,7 @@
                     0 characters
                 </span>
 
-                <button id="verify-btn">
+                <button id="verify-btn" type="button">
                     <span id="button-text">Verify Claim</span>
                     <span id="loader" class="loader hidden"></span>
                 </button>
@@ -90,9 +107,7 @@
                             VERDICT
                         </span>
 
-                        <h2 id="verdict">
-                            —
-                        </h2>
+                        <h2 id="verdict">—</h2>
                     </div>
 
                     <div class="confidence">
@@ -101,9 +116,7 @@
                             CONFIDENCE
                         </span>
 
-                        <strong id="confidence">
-                            —
-                        </strong>
+                        <strong id="confidence">—</strong>
 
                     </div>
 
@@ -116,9 +129,7 @@
                         CLAIM
                     </span>
 
-                    <p id="claim-result">
-                        —
-                    </p>
+                    <p id="claim-result">—</p>
 
                 </div>
 
@@ -129,9 +140,7 @@
                         AI ANALYSIS
                     </span>
 
-                    <p id="reason">
-                        —
-                    </p>
+                    <p id="reason">—</p>
 
                 </div>
 
@@ -150,17 +159,47 @@
 
 
     <footer>
-        <div>VeriLens © 2026 · AI-Powered Claim Verification</div>
+
+        <div>
+            VeriLens © 2026 · AI-Powered Claim Verification
+        </div>
 
         <div class="team-credit">
             Built with ♥ by <strong>Algorithm Avengers</strong>
         </div>
 
         <div class="team-members">
+
             <a href="mailto:rathivaishnavi949@gmail.com">
                 VR · Team Lead
             </a>
+
         </div>
+
+        <div class="social-links">
+
+            <a
+                href="https://www.linkedin.com/in/vaishnavi-rathi-/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                title="LinkedIn"
+            >
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+
+            <a
+                href="https://github.com/vaishnavi-rathiii"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                title="GitHub"
+            >
+                <i class="fa-brands fa-github"></i>
+            </a>
+
+        </div>
+
     </footer>
 
 
@@ -171,4 +210,3 @@
 </body>
 
 </html>
-
