@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from urllib.parse import urlparse
 
-from rag.models import RetrievedDocument
+from rag.models import EvidenceItem, RetrievedDocument
 
 
 @dataclass(frozen=True)
@@ -122,22 +122,36 @@ def rank_documents(
     return sorted(enriched, key=sort_key, reverse=True)
 
 
-def build_citations(urls: list[str], titles: list[str | None] | None = None) -> list[SourceCitation]:
-    """Build deduplicated citations from retrieved source URLs."""
+def build_citations(
+    evidence: list[EvidenceItem],
+) -> list[SourceCitation]:
+    """Build deduplicated citations from evidence items."""
+
     seen: set[str] = set()
     citations: list[SourceCitation] = []
 
-    for index, url in enumerate(urls):
+    for item in evidence:
+        url = item.url.strip()
+
         if not url:
             continue
+
         try:
             normalized = normalize_url(url)
         except ValueError:
             continue
+
         if normalized in seen:
             continue
+
         seen.add(normalized)
-        title = titles[index] if titles and index < len(titles) else None
-        citations.append(SourceCitation(url=normalized, title=title))
+
+        citations.append(
+            SourceCitation(
+                url=normalized,
+                title=item.title,
+                publisher=item.source,
+            )
+        )
 
     return citations

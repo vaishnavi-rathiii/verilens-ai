@@ -399,7 +399,12 @@ class Explainer:
         verification: VerificationResult,
     ) -> Explanation:
         """Return an explanation with citation references only from evidence."""
-        result = self._generator.generate(claim, verification)
+
+        result = self._generator.generate(
+            claim,
+            verification,
+        )
+
         return Explanation.from_result(result)
 
 
