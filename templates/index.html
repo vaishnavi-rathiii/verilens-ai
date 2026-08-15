@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VeriLens | AI Claim Verification</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <span>◈</span>
+            VeriLens
+        </div>
+
+        <div class="nav-text">
+            AI Claim Verification
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <section class="hero">
+
+            <div class="badge">
+                AI-POWERED FACT CHECKING
+            </div>
+
+            <h1>
+                Verify Before<br>
+                You <span>Believe.</span>
+            </h1>
+
+            <p>
+                Enter a claim and VeriLens will analyze available
+                evidence and provide an AI-powered verification result.
+            </p>
+
+        </section>
+
+
+        <section class="input-card">
+
+            <label for="claim">
+                Enter a claim
+            </label>
+
+            <textarea
+                id="claim"
+                rows="5"
+                placeholder="Example: The Earth is round."
+            ></textarea>
+
+            <div class="input-footer">
+
+                <span id="character-count">
+                    0 characters
+                </span>
+
+                <button id="verify-btn">
+                    <span id="button-text">Verify Claim</span>
+                    <span id="loader" class="loader hidden"></span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <div id="error-box" class="error-box hidden"></div>
+
+
+        <section id="result-section" class="hidden">
+
+            <h2 class="section-title">
+                Verification Result
+            </h2>
+
+            <div class="result-card">
+
+                <div class="result-header">
+
+                    <div>
+                        <span class="label">
+                            VERDICT
+                        </span>
+
+                        <h2 id="verdict">
+                            —
+                        </h2>
+                    </div>
+
+                    <div class="confidence">
+
+                        <span>
+                            CONFIDENCE
+                        </span>
+
+                        <strong id="confidence">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="claim-section">
+
+                    <span class="label">
+                        CLAIM
+                    </span>
+
+                    <p id="claim-result">
+                        —
+                    </p>
+
+                </div>
+
+
+                <div class="reason-section">
+
+                    <span class="label">
+                        AI ANALYSIS
+                    </span>
+
+                    <p id="reason">
+                        —
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <h2 class="section-title evidence-title">
+                Evidence
+            </h2>
+
+            <div id="evidence-container"></div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        VeriLens © 2026 · AI-Powered Claim Verification
+    </footer>
+
+
+    <script
+        src="{{ url_for('static', filename='js/script.js') }}"
+    ></script>
+
+</body>
+
+</html>

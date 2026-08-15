@@ -1,0 +1,6 @@
+Flask
+chromadb
+sentence-transformers
+huggingface-hub
+transformers
+torch
