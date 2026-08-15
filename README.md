@@ -289,70 +289,15 @@ Final Verification
 
 ---
 
-## 🏆 Hackathon Project
+## ⚖️ Verdict Interpretation
 
-VeriLens was developed as a **team-based hackathon project** under the team:
+VeriLens classifies a claim based on the evidence retrieved and analyzed by the verification pipeline.
 
-### Algorithm Avengers
-
-The project focuses on combining AI, RAG, evidence retrieval, and web technologies to address the challenge of evaluating the credibility of factual claims.
-
----
-
-## 👥 Team & Collaborators
-
-### Algorithm Avengers
-
-#### 👑 Team Lead
-
-* [Vaishnavi Rathi](https://github.com/vaishnavi-rathiii)
-
-#### 🤝 Collaborators
-
-* [KrishDalvi](https://github.com/KrishDalvi)
-* [deoreshree](https://github.com/deoreshree)
-
----
-
-## 🚧 Current Status
-
-**Active Development**
-
-VeriLens is currently under active development.
-
-Current development areas include:
-
-* Verification pipeline
-* Evidence retrieval
-* RAG integration
-* AI integration
-* User interface
-* Testing
-* Cloud deployment
-
----
-
-## ❤️ Acknowledgement
-
-> Built with ❤️ by **Algorithm Avengers**
-
----
-
-## ⚠️ Disclaimer
-
-VeriLens is an experimental AI-powered verification system.
-
-AI-generated verification should not be treated as an absolute guarantee of truth. Users should review the provided evidence and sources, especially when dealing with important or high-stakes claims.
-
----
-
-## 👨‍💻 Project Vision
-
-Building VeriLens as an exploration of:
-
-```text
-AI × RAG × Evidence × Verification
-```
+| Verdict | Meaning |
+|---|---|
+| 🟢 **Supported** | The available evidence provides sufficient information that **supports the claim**. |
+| 🔴 **Contradicted** | The available evidence provides information that **conflicts with or disproves the claim**. |
+| 🟡 **Unclear** | The available evidence is **insufficient, ambiguous, or inconclusive** to confidently support or contradict the claim. |
 
 ---
 
