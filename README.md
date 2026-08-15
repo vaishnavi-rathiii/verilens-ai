@@ -2,9 +2,19 @@
 
 ## AI-Powered Claim Verification & Evidence Analysis
 
-VeriLens is an AI-powered claim verification system designed to analyze claims, retrieve relevant evidence, and provide evidence-based verification results.
+VeriLens is an AI-powered claim verification system developed as a **hackathon project** to analyze claims, retrieve relevant evidence, and provide evidence-based verification results.
 
 The project combines **Artificial Intelligence, Retrieval-Augmented Generation (RAG), evidence retrieval, and source analysis** into a single verification pipeline.
+
+---
+
+## 🌐 Live Demo
+
+Try VeriLens online:
+
+### [🚀 Launch VeriLens](https://verilens-ai-nzmn.onrender.com/)
+
+> The application is deployed on Render and may take a few moments to start if the service is idle.
 
 ---
 
@@ -146,15 +156,15 @@ VeriLens/
 ### 1. Clone the Repository
 
 ```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
-cd VeriLens
+git clone https://github.com/vaishnavi-rathiii/verilens-ai.git
+cd verilens-ai
 ```
 
 ### 2. Create a Virtual Environment
 
 #### Windows
 
-```powershell
+```bash
 python -m venv venv
 venv\Scripts\activate
 ```
@@ -214,7 +224,7 @@ http://127.0.0.1:5000
 
 ## ☁️ Deployment
 
-VeriLens can be deployed as a Flask web service.
+VeriLens is deployed as a Flask web service using Render.
 
 ### Render Configuration
 
@@ -225,6 +235,10 @@ VeriLens can be deployed as a Flask web service.
 | Build Command | `pip install -r requirements.txt` |
 | Start Command | `gunicorn app:app`                |
 | Instance      | Free                              |
+
+### Live Application
+
+[**https://verilens-ai-nzmn.onrender.com/**](https://verilens-ai-nzmn.onrender.com/)
 
 Environment variables and API keys should be configured through Render instead of being committed to the repository.
 
@@ -275,6 +289,31 @@ Final Verification
 
 ---
 
+## 🏆 Hackathon Project
+
+VeriLens was developed as a **team-based hackathon project** under the team:
+
+### Algorithm Avengers
+
+The project focuses on combining AI, RAG, evidence retrieval, and web technologies to address the challenge of evaluating the credibility of factual claims.
+
+---
+
+## 👥 Team & Collaborators
+
+### Algorithm Avengers
+
+#### 👑 Team Lead
+
+* [Vaishnavi Rathi](https://github.com/vaishnavi-rathiii)
+
+#### 🤝 Collaborators
+
+* [KrishDalvi](https://github.com/KrishDalvi)
+* [deoreshree](https://github.com/deoreshree)
+
+---
+
 ## 🚧 Current Status
 
 **Active Development**
@@ -308,21 +347,6 @@ Current development areas include:
 
 ---
 
-## 👥 Team
-
-### Algorithm Avengers
-
-**Team Lead**
-
-* [Vaishnavi Rathi](mailto:rathivaishnavi949@gmail.com) — Team Lead
-
-### Collaborators
-
-- [KrishDalvi](https://github.com/KrishDalvi)
-- [deoreshree](https://github.com/deoreshree)
-
----
-
 ## ❤️ Acknowledgement
 
 > Built with ❤️ by **Algorithm Avengers**
@@ -349,4 +373,30 @@ AI × RAG × Evidence × Verification
 
 ## 📄 License
 
-This project is currently under development.
+This project is licensed under the **MIT License**.
+
+### MIT License
+
+Copyright (c) 2026 **Algorithm Avengers**
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+**© 2026 Algorithm Avengers. All rights reserved where applicable.**
