@@ -1,6 +1,6 @@
-# VeriLens
+# 🛡️ VeriLens
 
-## AI-Powered Claim Verification & Evidence Analysis
+## 🔍 AI-Powered Claim Verification & Evidence Analysis
 
 VeriLens is an AI-powered claim verification system developed as a **hackathon project** to analyze claims, retrieve relevant evidence, and provide evidence-based verification results.
 
