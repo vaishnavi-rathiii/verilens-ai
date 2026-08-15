@@ -3,6 +3,7 @@ from integration import VeriLensEngine
 
 app = Flask(__name__)
 
+# Initialize the verification engine once
 engine = VeriLensEngine()
 
 
