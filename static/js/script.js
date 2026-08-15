@@ -35,9 +35,37 @@ const evidenceContainer =
     document.getElementById("evidence-container");
 
 
-/* CHARACTER COUNT */
+/* =========================================
+   INITIAL STATE
+========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    // Do not automatically focus the textarea.
+    // The user can click it or use Tab to focus it.
+    claimInput.blur();
+
+    updateCharacterCount();
+
+});
+
+
+/* =========================================
+   CHARACTER COUNT
+========================================= */
 
 claimInput.addEventListener("input", () => {
+
+    updateCharacterCount();
+
+    // Hide an old error as soon as the user
+    // starts correcting the claim.
+    hideError();
+
+});
+
+
+function updateCharacterCount() {
 
     const length =
         claimInput.value.length;
@@ -45,10 +73,35 @@ claimInput.addEventListener("input", () => {
     characterCount.textContent =
         `${length} characters`;
 
+}
+
+
+/* =========================================
+   KEYBOARD SHORTCUT
+========================================= */
+
+// Ctrl + Enter on Windows/Linux
+// Cmd + Enter on macOS
+
+claimInput.addEventListener("keydown", (event) => {
+
+    if (
+        event.key === "Enter" &&
+        (event.ctrlKey || event.metaKey)
+    ) {
+
+        event.preventDefault();
+
+        verifyClaim();
+
+    }
+
 });
 
 
-/* VERIFY BUTTON */
+/* =========================================
+   VERIFY BUTTON
+========================================= */
 
 verifyButton.addEventListener(
     "click",
@@ -57,6 +110,13 @@ verifyButton.addEventListener(
 
 
 async function verifyClaim() {
+
+    // Prevent another request while
+    // verification is already running.
+    if (verifyButton.disabled) {
+        return;
+    }
+
 
     const claim =
         claimInput.value.trim();
@@ -79,7 +139,9 @@ async function verifyClaim() {
 
     setLoading(true);
 
-    resultSection.classList.add("hidden");
+    resultSection.classList.add(
+        "hidden"
+    );
 
 
     try {
@@ -105,8 +167,10 @@ async function verifyClaim() {
             await response.json();
 
 
-        if (!response.ok ||
-            !data.success) {
+        if (
+            !response.ok ||
+            !data.success
+        ) {
 
             throw new Error(
                 data.error ||
@@ -123,12 +187,17 @@ async function verifyClaim() {
 
     } catch (error) {
 
-        console.error(error);
+        console.error(
+            "Verification error:",
+            error
+        );
+
 
         showError(
             error.message ||
-            "Something went wrong."
+            "Something went wrong while verifying the claim."
         );
+
 
     } finally {
 
@@ -139,7 +208,9 @@ async function verifyClaim() {
 }
 
 
-/* DISPLAY RESULT */
+/* =========================================
+   DISPLAY RESULT
+========================================= */
 
 function displayResult(result) {
 
@@ -148,13 +219,21 @@ function displayResult(result) {
     );
 
 
+    const verdict =
+        (
+            result.verdict ||
+            "UNCLEAR"
+        ).toUpperCase();
+
+
     verdictElement.textContent =
-        (result.verdict ||
-        "UNCLEAR").toUpperCase();
+        verdict;
 
 
     const confidence =
-        Number(result.confidence || 0);
+        Number(
+            result.confidence || 0
+        );
 
 
     confidenceElement.textContent =
@@ -178,13 +257,16 @@ function displayResult(result) {
 
 
     resultSection.scrollIntoView({
-        behavior: "smooth"
+        behavior: "smooth",
+        block: "start"
     });
 
 }
 
 
-/* EVIDENCE */
+/* =========================================
+   EVIDENCE
+========================================= */
 
 function displayEvidence(evidence) {
 
@@ -202,15 +284,14 @@ function displayEvidence(evidence) {
         `;
 
         return;
+
     }
 
 
     evidence.forEach(item => {
 
         const card =
-            document.createElement(
-                "div"
-            );
+            document.createElement("div");
 
 
         card.className =
@@ -267,7 +348,9 @@ function displayEvidence(evidence) {
 }
 
 
-/* LOADING */
+/* =========================================
+   LOADING STATE
+========================================= */
 
 function setLoading(isLoading) {
 
@@ -278,7 +361,7 @@ function setLoading(isLoading) {
     if (isLoading) {
 
         buttonText.textContent =
-            "Analyzing...";
+            "Analyzing Evidence...";
 
         loader.classList.remove(
             "hidden"
@@ -298,7 +381,9 @@ function setLoading(isLoading) {
 }
 
 
-/* ERROR */
+/* =========================================
+   ERROR
+========================================= */
 
 function showError(message) {
 
@@ -321,7 +406,9 @@ function hideError() {
 }
 
 
-/* SECURITY */
+/* =========================================
+   SECURITY
+========================================= */
 
 function escapeHTML(value) {
 
