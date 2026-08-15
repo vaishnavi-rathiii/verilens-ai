@@ -2,4 +2,4 @@ venv/
 .env
 __pycache__/
 *.pyc
-.chroma/git status
+.chroma/
