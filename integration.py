@@ -1,30 +1,38 @@
-from rag_engine import FakeNewsRAG
+from src.ai.evidence_retriever import search_wikipedia
+from src.ai.evidence_ranker import rank_evidence
 from src.ai.verifier import verify_claim
 
 
 class VeriLensEngine:
 
     def __init__(self):
-        self.rag = FakeNewsRAG()
+        pass
 
     def analyze(self, claim: str) -> dict:
 
-        # Member 2: retrieve evidence
-        rag_evidence = self.rag.get_evidence(claim)
+        # 1. Retrieve evidence
+        evidence = search_wikipedia(
+            claim,
+            limit=5
+        )
 
-        # Convert Member 2 format → Member 1 format
-        verifier_evidence = []
+        # 2. Rank evidence
+        evidence = rank_evidence(
+            claim,
+            evidence
+        )
 
-        for item in rag_evidence:
-            verifier_evidence.append({
-                "title": item.get("source", "Unknown"),
-                "snippet": item.get("text", "")
-            })
+        # 3. Keep the strongest evidence
+        best_evidence = [
+            item
+            for item in evidence
+            if item.get("relevance_score", 0) >= 50
+        ][:3]
 
-        # Member 1: verify claim
+        # 4. Verify the claim
         verification = verify_claim(
             claim,
-            verifier_evidence
+            best_evidence
         )
 
         return {
@@ -32,5 +40,5 @@ class VeriLensEngine:
             "verdict": verification["verdict"],
             "confidence": verification["confidence"],
             "reason": verification["reason"],
-            "evidence": rag_evidence
+            "evidence": best_evidence
         }
